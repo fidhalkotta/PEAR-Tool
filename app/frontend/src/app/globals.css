@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+  font-family: 'Nunito', sans-serif;
+  color: black;
+}
+
+body {
+  background-color: theme('colors.white');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 17px;
+    height: 17px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: theme('colors.slate.900');
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.slate.400');
+    border-radius: 100vh;
+    border: 3px solid theme('colors.slate.900');
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.slate.400');
+  }
+}
