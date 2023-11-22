@@ -6,11 +6,15 @@ import { useDropzone } from "react-dropzone";
 export default function FileDropzone() {
 	const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
 
-	const files = acceptedFiles.map(file => (
-		<li key={file.path}>
-			{file.path} - {file.size} bytes
-		</li>
-	));
+	const filesList = acceptedFiles.length > 0 ? (
+		acceptedFiles.map(file => (
+			<li key={file.path}>
+				{file.path} - {file.size} bytes
+			</li>
+		))
+	) : (
+		<p className="text-gray-500 italic">Upload Files to View Details</p>
+	);
 
 	return (
 		<>
@@ -24,15 +28,10 @@ export default function FileDropzone() {
 			</div>
 			<div>
 				<h4 className={"font-bold"}>Files</h4>
-				<ul>{files}</ul>
+				<ul>{filesList}</ul>
 			</div>
 		</>
 
 	);
 }
 
-// <section className="">
-//         <p className="text-gray-500">UPLOAD FILE HERE</p>
-//         <input type="file" className="mt-4"/>
-//     </div>
-// </section>
