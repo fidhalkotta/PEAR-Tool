@@ -20,6 +20,7 @@ const config: Config = {
         'nhs-bright-blue': '#0072CE',
         'nhs-light-blue': '#41B6E6',
         'nhs-aqua-blue': '#00A9CE',
+          'nhs-pale-grey': '#E8EDEE',
         }
     },
   },
