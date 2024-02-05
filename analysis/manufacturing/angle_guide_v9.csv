@@ -1,0 +1,25 @@
+,Section,Original_Target,Full_Turns,Indexer_Row,Indexer_Hole,Current_Angle_On_Machine,Error,Notes
+0,1.0,0.0,0.0,49.0,48.0,0.0,8.816326530612246,cutting hole 1;
+1,1.0,72.0,8.0,49.0,48.0,72.0,0.0,cutting hole 2;
+2,1.0,72.0,8.0,49.0,48.0,144.0,0.0,cutting hole 3;
+3,1.0,72.0,8.0,49.0,48.0,216.0,0.0,cutting hole 4;
+4,1.0,72.0,8.0,49.0,48.0,288.0,0.0,cutting hole 5;
+5,1.0,72.0,8.0,49.0,48.0,0.0,8.816326530612246,NO cutting moving back to 0 degree;
+6,2.0,39.62,4.0,47.0,18.0,39.62,0.010481980026054494,cutting hole 1;move past hole 0 (cali-target>max);
+7,2.0,72.0,8.0,47.0,18.0,111.62,0.0,cutting hole 2;
+8,2.0,72.0,8.0,47.0,18.0,183.62,0.0,cutting hole 3;
+9,2.0,72.0,8.0,47.0,18.0,255.62,0.0,cutting hole 4;
+10,2.0,72.0,8.0,47.0,18.0,327.62,0.0,cutting hole 5;
+11,2.0,32.38,3.0,49.0,48.0,0.0,8.826808510638301,NO cutting moving back to 0 degree;
+12,3.0,53.62,5.0,47.0,44.0,53.62,0.010794615718625167,cutting hole 1;move past hole 0 (cali-target>max);
+13,3.0,72.0,8.0,47.0,44.0,125.62,0.0,cutting hole 2;
+14,3.0,72.0,8.0,47.0,44.0,197.62,0.0,cutting hole 3;
+15,3.0,72.0,8.0,47.0,44.0,269.62,0.0,cutting hole 4;
+16,3.0,72.0,8.0,47.0,44.0,341.62,0.0,cutting hole 5;
+17,3.0,18.380000000000003,2.0,49.0,48.0,0.0,8.805531914893619,NO cutting moving back to 0 degree;
+18,4.0,21.24,2.0,47.0,16.0,21.24,0.007503256621798293,cutting hole 1;move past hole 0 (cali-target>max);
+19,4.0,72.0,8.0,47.0,16.0,93.24,0.0,cutting hole 2;
+20,4.0,72.0,8.0,47.0,16.0,165.24,0.0,cutting hole 3;
+21,4.0,72.0,8.0,47.0,16.0,237.24,0.0,cutting hole 4;
+22,4.0,72.0,8.0,47.0,16.0,309.24,0.0,cutting hole 5;
+23,4.0,50.760000000000005,5.0,49.0,48.0,0.0,8.823829787234047,NO cutting moving back to 0 degree;
