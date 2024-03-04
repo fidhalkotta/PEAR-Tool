@@ -13,7 +13,7 @@ def scale_and_save_mesh(original_stl_file, scale_factor=0.1):
 
     # Construct the new file name
     file_path, file_extension = os.path.splitext(original_stl_file)
-    new_file_name = f"{file_path}_correct_sized{file_extension}"
+    new_file_name = f"{file_path}_scaled_down_fake{file_extension}"
 
     # Save the scaled mesh to the new STL file
     original_mesh.save(new_file_name)

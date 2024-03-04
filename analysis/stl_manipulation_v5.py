@@ -4,33 +4,28 @@ from stl_centreline_functions import process_layers, show_centerline
 from stl_scale_functions import create_interpolated_centerline, scale_stl_mesh_interpolated, save_new_mesh
 
 # Load the STL file
-your_stl_file = 'CT_2_1_A_correct_sized.stl'
-aorta_mesh = mesh.Mesh.from_file(your_stl_file)
+your_stl_file = 'ioanna_28_v5.stl'
+aorta_mesh = mesh.Mesh.from_file('data/' + your_stl_file)
 
-
-
-centerline = process_layers(aorta_mesh, 0.7)
+# used 7 for pre ioanna smoothed one
+# using 4 now for post smoothed one
+centerline = process_layers(aorta_mesh, your_stl_file, 4 )
 
 show_centerline(centerline)
 
 # Create the interpolated centerline functions
 f_x, f_y = create_interpolated_centerline(centerline)
 
-scaled_mesh_vectors_interpolated = scale_stl_mesh_interpolated(aorta_mesh, f_x, f_y, 1.1)
+# 1.25, 1.40, 1.60,
+# 1.45, 1.60, 1.8
 
-save_new_mesh(scaled_mesh_vectors_interpolated, your_stl_file)
+scale_factor = 1.8
+
+scaled_mesh_vectors_interpolated = scale_stl_mesh_interpolated(aorta_mesh, f_x, f_y, scale_factor)
+
+save_new_mesh(scaled_mesh_vectors_interpolated, your_stl_file, scale_factor)
 
 
 print("done")
 
 
-#
-#
-# scaled_mesh_vectors = scale_stl_mesh(aorta_mesh, centerline, 1.1)
-#
-# # Create a new mesh object for the scaled mesh
-# scaled_mesh = mesh.Mesh(np.zeros(scaled_mesh_vectors.shape[0], dtype=mesh.Mesh.dtype))
-# for i, f in enumerate(scaled_mesh_vectors):
-#     scaled_mesh.vectors[i] = f
-#
-# scaled_mesh.save(your_stl_file[:-4] + '_scaled.stl')

@@ -73,12 +73,14 @@ def scale_stl_mesh_interpolated(aorta_mesh, f_x, f_y, scale_factor=1.1):
     return scaled_vectors
 
 
-def save_new_mesh(scaled_mesh_vectors, original_mesh_file):
+def save_new_mesh(scaled_mesh_vectors, original_mesh_file, scale_factor):
     # Create a new mesh object for the scaled mesh
     scaled_mesh = mesh.Mesh(np.zeros(scaled_mesh_vectors.shape[0], dtype=mesh.Mesh.dtype))
     for i, f in enumerate(scaled_mesh_vectors):
         scaled_mesh.vectors[i] = f
 
-    scaled_mesh.save(original_mesh_file[:-4] + '_scaled.stl')
+    save_name = 'outputs/V7/' + original_mesh_file[:-4] + f'_scaled_{scale_factor}.stl'
 
-    print("Scaled mesh saved to", original_mesh_file[:-4] + '_scaled.stl')
+    scaled_mesh.save(save_name)
+
+    print("Scaled mesh saved to", save_name)
