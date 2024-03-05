@@ -1436,6 +1436,20 @@ files = [
 ]
 
 [[package]]
+name = "scienceplots"
+version = "2.1.1"
+description = "Format Matplotlib for scientific plotting"
+optional = false
+python-versions = "*"
+files = [
+    {file = "SciencePlots-2.1.1-py3-none-any.whl", hash = "sha256:2e64d2e93b4f98702f30145dbb70d238f5dc315e227fec331489631232dfc9e0"},
+    {file = "SciencePlots-2.1.1.tar.gz", hash = "sha256:d8d197e3410f87ebdad0b9c265eaab596094fb082d97123e835f6bc32800ab54"},
+]
+
+[package.dependencies]
+matplotlib = "*"
+
+[[package]]
 name = "scikit-learn"
 version = "1.4.0"
 description = "A set of python modules for machine learning and data mining"
@@ -1700,4 +1714,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9"
-content-hash = "5eb7395ee54a8ce52c5fcdf18d7fed9f6e1114bd3437b044425a0f9b0a1e9366"
+content-hash = "bfa301034687391e2a3a4ad8ca098f1b4667a48a7479dfd2d7d8ac68fdfb169b"

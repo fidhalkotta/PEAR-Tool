@@ -79,7 +79,17 @@ def save_new_mesh(scaled_mesh_vectors, original_mesh_file, scale_factor):
     for i, f in enumerate(scaled_mesh_vectors):
         scaled_mesh.vectors[i] = f
 
-    save_name = 'outputs/V7/' + original_mesh_file[:-4] + f'_scaled_{scale_factor}.stl'
+    save_name = 'outputs/V9/' + original_mesh_file[:-4] + f'_scaled_m1_{scale_factor}.stl'
+
+    scaled_mesh.save(save_name)
+
+    print("Scaled mesh saved to", save_name)
+
+def save_new_mesh_v2(scaled_mesh_vectors, original_mesh_file, scale_factor, save_name):
+    # Create a new mesh object for the scaled mesh
+    scaled_mesh = mesh.Mesh(np.zeros(scaled_mesh_vectors.shape[0], dtype=mesh.Mesh.dtype))
+    for i, f in enumerate(scaled_mesh_vectors):
+        scaled_mesh.vectors[i] = f
 
     scaled_mesh.save(save_name)
 
