@@ -885,7 +885,59 @@ files = [
     {file = "numpy-1.26.3-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:46f47ee566d98849323f01b349d58f2557f02167ee301e5e28809a8c0e27a2d0"},
     {file = "numpy-1.26.3-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:a8474703bffc65ca15853d5fd4d06b18138ae90c17c8d12169968e998e448bb5"},
     {file = "numpy-1.26.3.tar.gz", hash = "sha256:697df43e2b6310ecc9d95f05d5ef20eacc09c7c4ecc9da3f235d39e71b7da1e4"},
+
 ]
+
+[[package]]
+name = "numpy-stl"
+version = "3.1.1"
+description = "Library to make reading, writing and modifying both binary and ascii STL files easy."
+optional = false
+python-versions = ">3.6.0"
+files = [
+    {file = "numpy-stl-3.1.1.tar.gz", hash = "sha256:f78eea62c80938bf53ea914fa5b6c92f448f0eab5609e0e5a737dde039404334"},
+    {file = "numpy_stl-3.1.1-py3-none-any.whl", hash = "sha256:b0b7f4455c29d26d3dc0eed894f5b17c64e4019b056d0060be48f93680f6e6d3"},
+]
+
+[package.dependencies]
+numpy = "*"
+python-utils = ">=3.4.5"
+
+[[package]]
+name = "open3d"
+version = "0.18.0"
+description = "Open3D: A Modern Library for 3D Data Processing."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "open3d-0.18.0-cp310-cp310-macosx_11_0_x86_64.whl", hash = "sha256:48ee627a142a5453c4a2869b529310acb6f6b2507989cb9199c56e75796c575e"},
+    {file = "open3d-0.18.0-cp310-cp310-macosx_13_0_arm64.whl", hash = "sha256:9f3df5e8e8fe514b8285d05e43a4a3d57243d42d5c1dc9212adf8f18b6ab59b4"},
+    {file = "open3d-0.18.0-cp310-cp310-manylinux_2_27_aarch64.whl", hash = "sha256:b9c8c8059cb92cd8b73c287385eeddf46195f2609ac7052302d6ac844a373dbf"},
+    {file = "open3d-0.18.0-cp310-cp310-manylinux_2_27_x86_64.whl", hash = "sha256:f649d5d58090f73a337895fb0022c7b05c00f47f704b5722b103cceba04cc870"},
+    {file = "open3d-0.18.0-cp310-cp310-win_amd64.whl", hash = "sha256:48cdf2af3051320140d198f5d3ea3a85eeb3355e7a989a835b611b16589b9646"},
+    {file = "open3d-0.18.0-cp311-cp311-macosx_10_15_universal2.whl", hash = "sha256:b35a68b9fef3e963266db3bb15fbfef20e05787bc61192f61725fde5215f3560"},
+    {file = "open3d-0.18.0-cp311-cp311-macosx_13_0_arm64.whl", hash = "sha256:2182b818dcd3290dd2ddb0021ad0453bfda99098c931d5b2fc636a341cb3ca70"},
+    {file = "open3d-0.18.0-cp311-cp311-manylinux_2_27_aarch64.whl", hash = "sha256:882f1e5039a3c1c5ec05183eb650537fd7431238b7ccb2b742ca5479f02f705b"},
+    {file = "open3d-0.18.0-cp311-cp311-manylinux_2_27_x86_64.whl", hash = "sha256:8e3d1d1900a8f4d956f6819c246c78081725b9b0888f8549d2a7a49c8daa1303"},
+    {file = "open3d-0.18.0-cp311-cp311-win_amd64.whl", hash = "sha256:2da5da6c9eb9227baee6fe98baa992233aca36b83ec9e7d4093c77e762db60e6"},
+    {file = "open3d-0.18.0-cp38-cp38-macosx_11_0_x86_64.whl", hash = "sha256:877e67237f2a97f8219870108eecf1ff447a81b0fcf1d2eacea246c9619fc55c"},
+    {file = "open3d-0.18.0-cp38-cp38-macosx_13_0_arm64.whl", hash = "sha256:0ec03fcd48a939ec105896e0d02a9d006e8328c60491a0647b9a4fe5d9e4117d"},
+    {file = "open3d-0.18.0-cp38-cp38-manylinux_2_27_aarch64.whl", hash = "sha256:477ed692bafd0ed591676d78bcb898bb2b684dcaa2886befe29e1b19d38a7c6d"},
+    {file = "open3d-0.18.0-cp38-cp38-manylinux_2_27_x86_64.whl", hash = "sha256:46b9c1b900716771827b78006cfd18489b5327eabda8cd3d01e028b8173f4301"},
+    {file = "open3d-0.18.0-cp38-cp38-win_amd64.whl", hash = "sha256:d745affd0c7c765ed30ae9010abc4cfa80980b2c9f39a4f8678e8a9ef41ce089"},
+    {file = "open3d-0.18.0-cp39-cp39-macosx_11_0_x86_64.whl", hash = "sha256:cce30304dfde3b9c0fbfca21687cf0e5280bcbabe2920d2c804ab352bfe610a5"},
+    {file = "open3d-0.18.0-cp39-cp39-macosx_13_0_universal2.whl", hash = "sha256:ba5e07ca9a3ec6c70393bd2c5c707455a2e9c54209ccccca15ecf03834efd353"},
+    {file = "open3d-0.18.0-cp39-cp39-manylinux_2_27_aarch64.whl", hash = "sha256:23a3bf135c7e69d4116f54b1ff78f58846245b5e70640b291981cee9e49a53d7"},
+    {file = "open3d-0.18.0-cp39-cp39-manylinux_2_27_x86_64.whl", hash = "sha256:7d05fd6eedf75136cfbed24983da30bdfd08a6c4b1f968bf80ab84efc1fac861"},
+    {file = "open3d-0.18.0-cp39-cp39-win_amd64.whl", hash = "sha256:41be2d652f1b9feed9efb8775b29368ece0b4328ba6e90278486ff7643c6d480"},
+]
+
+[package.dependencies]
+configargparse = "*"
+dash = ">=2.6.0"
+nbformat = ">=5.7.0"
+numpy = ">=1.18.0"
+werkzeug = ">=2.2.3"
 
 [[package]]
 name = "numpy-stl"
@@ -1543,6 +1595,7 @@ files = [
     {file = "scipy-1.12.0-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:196ebad3a4882081f62a5bf4aeb7326aa34b110e533aab23e4374fcccb0890dc"},
     {file = "scipy-1.12.0-cp39-cp39-win_amd64.whl", hash = "sha256:b360f1b6b2f742781299514e99ff560d1fe9bd1bff2712894b52abe528d1fd1e"},
     {file = "scipy-1.12.0.tar.gz", hash = "sha256:4bf5abab8a36d20193c698b0f1fc282c1d083c94723902c447e5d2f1780936a3"},
+
 ]
 
 [package.dependencies]
@@ -1563,6 +1616,7 @@ files = [
     {file = "setuptools-69.0.3-py3-none-any.whl", hash = "sha256:385eb4edd9c9d5c17540511303e39a147ce2fc04bc55289c322b9e5904fe2c05"},
     {file = "setuptools-69.0.3.tar.gz", hash = "sha256:be1af57fc409f93647f2e8e4573a142ed38724b8cdd389706a867bb4efcf1e78"},
 ]
+
 
 [package.extras]
 docs = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (<7.2.5)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (>=1,<2)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
@@ -1660,6 +1714,7 @@ python-versions = ">=2"
 files = [
     {file = "tzdata-2023.4-py2.py3-none-any.whl", hash = "sha256:aa3ace4329eeacda5b7beb7ea08ece826c28d761cda36e747cfbf97996d39bf3"},
     {file = "tzdata-2023.4.tar.gz", hash = "sha256:dd54c94f294765522c77399649b4fefd95522479a664a0cec87f41bebc6148c9"},
+
 ]
 
 [[package]]
