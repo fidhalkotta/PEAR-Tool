@@ -27,7 +27,7 @@ def process_layers(aorta_mesh, file_name, z_interval=1.0 ):
             centroid = find_centroid(layer_points)
             centerline_points.append((centroid[0], centroid[1], z + z_interval / 2))
 
-    save_name = 'outputs/V7/centerline_' + file_name[:-4] + '.csv'
+    save_name = 'outputs/V9/centerline_' + file_name[:-4] + '.csv'
 
     with open(save_name, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
