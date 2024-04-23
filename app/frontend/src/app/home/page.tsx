@@ -3,10 +3,18 @@
 import React, { useState } from "react";
 import MainLayout from "@/app/layouts/mainLayout";
 import { Progress } from "flowbite-react";
+import { InformationCircleIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
 	const [selectedJob, setSelectedJob] = useState(null);
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	// State for managing tooltip visibility
+	const [showTooltip, setShowTooltip] = useState(false);
+	const [showFinishedJobsTooltip, setShowFinishedJobsTooltip] = useState(false);
+
+	const handleTooltipVisibility = () => {
+		setShowTooltip(!showTooltip);
+	};
 
 	const [jobs] = useState([
 		{ id: "#47681", name: "<Redacted>", progress: 63 },
@@ -68,35 +76,79 @@ export default function Home() {
 						<div className="container mx-auto p-4">
 							{/* Patient and Procedure Information */}
 							<div className="mb-4">
-								<label htmlFor="patientId" className="block text-sm font-medium text-gray-700">Patient ID</label>
-								<input type="text" id="patientId" name="patientId" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none" placeholder="Enter Patient ID" />
+								<label htmlFor="patientId" className="block text-sm font-medium text-gray-700">Patient
+									ID</label>
+								<input type="text" id="patientId" name="patientId"
+									   className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
+									   placeholder="Enter Patient ID"/>
 							</div>
 
+							{/*/!* CT Scan Upload *!/*/}
+							{/*<div className="mb-4">*/}
+							{/*	<label htmlFor="ctScan" className="block text-sm font-medium text-gray-700">CT Scan*/}
+							{/*		Upload</label>*/}
+							{/*	<input type="file" id="ctScan" name="ctScan"*/}
+							{/*		   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"/>*/}
+							{/*</div>*/}
+
 							{/* CT Scan Upload */}
-							<div className="mb-4">
-								<label htmlFor="ctScan" className="block text-sm font-medium text-gray-700">CT Scan Upload</label>
-								<input type="file" id="ctScan" name="ctScan" className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none" />
+							<div className="mb-4 relative">
+								<label htmlFor="ctScan"
+									   className="block text-sm font-medium text-gray-700 flex items-center">
+									CT Scan Upload
+									<span
+										className="ml-1 inline-block text-gray-500 cursor-help"
+										onMouseEnter={() => setShowTooltip(true)}
+										onMouseLeave={() => setShowTooltip(false)}
+										onTouchStart={handleTooltipVisibility}
+									>
+										<InformationCircleIcon className="h-5 w-5"/>
+									</span>
+								</label>
+								{showTooltip && (
+									<div
+										className="absolute z-10 w-64 p-2 bg-white rounded-md shadow-lg text-sm text-gray-700 -mt-8 ml-6">
+										Only select folders containing .dicom files
+									</div>
+								)}
+								<input
+									type="file"
+									id="ctScan"
+									name="ctScan"
+									className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
+									directory="" webkitdirectory="" // Attributes to allow directory selection
+								/>
 							</div>
 
 							{/* Stent Graft Specifications */}
 							<div className="mb-4">
-								<label htmlFor="sgSize" className="block text-sm font-medium text-gray-700">Stent Graft Size</label>
-								<input type="text" id="sgSize" name="sgSize" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none" placeholder="Enter SG Size" />
+								<label htmlFor="sgSize" className="block text-sm font-medium text-gray-700">Stent Graft
+									Size</label>
+								<input type="text" id="sgSize" name="sgSize"
+									   className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
+									   placeholder="Enter SG Size"/>
 							</div>
 
 							{/* Suggested Deployment Locations */}
 							<div className="mb-4">
-								<label htmlFor="deploymentLocation" className="block text-sm font-medium text-gray-700">Suggested Deployment Location</label>
-								<input type="text" id="deploymentLocation" name="deploymentLocation" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none" placeholder="Enter Deployment Location" />
+								<label htmlFor="deploymentLocation" className="block text-sm font-medium text-gray-700">Suggested
+									Deployment Location</label>
+								<input type="text" id="deploymentLocation" name="deploymentLocation"
+									   className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
+									   placeholder="Enter Deployment Location"/>
 							</div>
 
 							{/* Simulation Settings */}
 							<div className="mb-4">
-								<label htmlFor="simulationSettings" className="block text-sm font-medium text-gray-700">Simulation Settings</label>
+								<label htmlFor="simulationSettings" className="block text-sm font-medium text-gray-700">Simulation
+									Settings</label>
 								{/* Additional inputs or dropdowns for FEA settings */}
 							</div>
 
-							<button type="submit" className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600">Start Simulation</button>
+							<button type="submit"
+								className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600">Start
+								Simulation
+							</button>
 						</div>
 					</div>
 
@@ -111,22 +163,27 @@ export default function Home() {
 										 onClick={() => openModal(job)}>
 										<span className="text-sm font-medium">{job.id}</span>
 										<div className="w-8/12">
-											<Progress progress={job.progress} size="lg" color={getColor(job.progress)} />
+											<Progress progress={job.progress} size="lg" color={getColor(job.progress)}/>
 										</div>
 										<span>{job.progress}%</span>
 									</div>
 								))}
 							</div>
 
-							<button id="viewMore" className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 mt-[35px]">View More</button>
+							<button id="viewMore"
+								className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 mt-[35px]">View
+								More
+							</button>
 						</div>
 
 						{isModalOpen && (
 							<div id="myModal" className="modal">
 								<div className="modal-content">
 									<span className="close" onClick={() => setIsModalOpen(false)}>&times;</span>
-									<h3 id="modalTitle" className="text-lg font-bold">{selectedJob?.id} {selectedJob?.name}</h3>
-									<p id="modalDescription" className="mt-4">Description about this job, medical notes and things to remember</p>
+									<h3 id="modalTitle"
+										className="text-lg font-bold">{selectedJob?.id} {selectedJob?.name}</h3>
+									<p id="modalDescription" className="mt-4">Description about this job, medical notes
+										and things to remember</p>
 									<h4 className="mt-4 font-bold">Uploaded Files</h4>
 									<ul id="modalFiles">
 										<li>File1.jpg</li>
@@ -137,19 +194,48 @@ export default function Home() {
 						)}
 					</div>
 
-					{/* Card 3: Finished Jobs */}
-					<div className="border rounded-lg p-4 shadow-sm hover:shadow-md">
-						<h2 className="font-bold text-lg mb-2">Finished Jobs</h2>
+					{/*/!* Card 3: Finished Jobs *!/*/}
+					<div className="border rounded-lg p-4 shadow-sm hover:shadow-md relative">
+						<h2 className="font-bold text-lg mb-2 flex items-center justify-between">
+							Finished Jobs
+							<span
+								className="inline-block text-gray-500 cursor-help"
+								onMouseEnter={() => setShowFinishedJobsTooltip(true)}
+								onMouseLeave={() => setShowFinishedJobsTooltip(false)}
+								onTouchStart={() => setShowFinishedJobsTooltip(!showFinishedJobsTooltip)}
+							>
+								<InformationCircleIcon className="h-5 w-5"/>
+							</span>
+						</h2>
+						{showFinishedJobsTooltip && (
+							<div
+								className="absolute z-10 w-96 p-4 bg-gray-200 rounded-lg shadow-lg text-sm text-gray-700 right-0 mr-4">
+								<ul className="list-disc space-y-2 ml-4">
+									<li><b>Unsuccessful</b></li>
+									<li><b>Successful, regular post-op observation required</b></li>
+									<li><b>Successful, no complications</b> means that at no point in the aortic tissue or
+										stent-graft did the stresses/displacements exceed a conservative safety factor,
+									</li>
+									<li><b>Successful, minor post-op observation required</b> means that
+										stresses/displacements are within x% of the safety factor resulting in this
+										recommendation.
+									</li>
+								</ul>
+							</div>
+						)}
 						<div className="overflow-auto px-4">
 							{finishedJobs.slice(0, 2).map(job => (
-								<div key={job.id} className="mb-4 p-2 border border-gray-300 rounded-md  cursor-pointer hover:border-nhs-light-blue">
+								<div key={job.id}
+									className="mb-4 p-2 border border-gray-300 rounded-md  cursor-pointer hover:border-nhs-light-blue">
 									<h3 className="text-md font-medium">{job.name}</h3>
 									<p className="text-sm mb-1"><strong>Date Completed:</strong> {job.dateCompleted}</p>
 									<p className="text-sm mb-1"><strong>Outcome:</strong> {job.outcome}</p>
 									<p className="text-sm"><strong>Follow-up Notes:</strong> {job.followUp}</p>
 								</div>
 							))}
-							<button className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 mt-2">View More</button>
+							<button className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 mt-2">View
+								More
+							</button>
 						</div>
 					</div>
 
@@ -180,10 +266,14 @@ export default function Home() {
 
 									{/* Other insights, if necessary */}
 								</div>
-								<img src="images/AAA-ct-scan.png" alt="Aorta" className="md:w-1/3 w-full h-auto self-center" />
+								<img src="images/AAA-ct-scan.png" alt="Aorta"
+									 className="md:w-1/3 w-full h-auto self-center"/>
 							</div>
 
-							<button className="w-full bg-cyan-500 text-white p-2 rounded hover:bg-cyan-600 mt-[31px]">More Detail</button>
+							<button
+								className="w-full bg-cyan-500 text-white p-2 rounded hover:bg-cyan-600 mt-[31px]">More
+								Detail
+							</button>
 						</div>
 					</div>
 

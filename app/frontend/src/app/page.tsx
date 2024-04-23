@@ -3,7 +3,7 @@ import React from "react";
 export default function Default() {
 	return (
 		<p>
-      a
+      AHHHHHHHH GO TO /home
 		</p>
 	);
 }

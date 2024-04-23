@@ -14,7 +14,7 @@ export default function NavigationBar() {
 					</ul>
 				</nav>
 				<div>
-					<img src="images/fidhal_pfp.jpg" alt="Profile" className="rounded-full w-10"/>
+					<img src="images/fidhal_pfp.png" alt="Profile" className="rounded-full w-10"/>
 				</div>
 			</div>
 		</div>
