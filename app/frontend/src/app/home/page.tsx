@@ -1,19 +1,29 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import MainLayout from "@/app/layouts/mainLayout";
 import { Progress } from "flowbite-react";
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
+	const router = useRouter();
+
 	const [selectedJob, setSelectedJob] = useState(null);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	// State for managing tooltip visibility
 	const [showTooltip, setShowTooltip] = useState(false);
 	const [showFinishedJobsTooltip, setShowFinishedJobsTooltip] = useState(false);
 
-	const handleTooltipVisibility = () => {
-		setShowTooltip(!showTooltip);
+	const [patientId, setPatientId] = useState("");
+	const [sgBifurcation, setSgBifurcation] = useState("");
+	const [iliacLimbSizing, setIliacLimbSizing] = useState("");
+
+	// Function to handle the navigation with form values
+	const handleContinueJobSetup = (event) => {
+		event.preventDefault();
+
+		router.push("/jobs/new?patientId=" + patientId + "&sgBifurcation=" + sgBifurcation + "&iliacLimbSizing=" + iliacLimbSizing);
 	};
 
 	const [jobs] = useState([
@@ -78,76 +88,114 @@ export default function Home() {
 							<div className="mb-4">
 								<label htmlFor="patientId" className="block text-sm font-medium text-gray-700">Patient
 									ID</label>
-								<input type="text" id="patientId" name="patientId"
-									   className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
-									   placeholder="Enter Patient ID"/>
-							</div>
-
-							{/*/!* CT Scan Upload *!/*/}
-							{/*<div className="mb-4">*/}
-							{/*	<label htmlFor="ctScan" className="block text-sm font-medium text-gray-700">CT Scan*/}
-							{/*		Upload</label>*/}
-							{/*	<input type="file" id="ctScan" name="ctScan"*/}
-							{/*		   className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"/>*/}
-							{/*</div>*/}
-
-							{/* CT Scan Upload */}
-							<div className="mb-4 relative">
-								<label htmlFor="ctScan"
-									   className="block text-sm font-medium text-gray-700 flex items-center">
-									CT Scan Upload
-									<span
-										className="ml-1 inline-block text-gray-500 cursor-help"
-										onMouseEnter={() => setShowTooltip(true)}
-										onMouseLeave={() => setShowTooltip(false)}
-										onTouchStart={handleTooltipVisibility}
-									>
-										<InformationCircleIcon className="h-5 w-5"/>
-									</span>
-								</label>
-								{showTooltip && (
-									<div
-										className="absolute z-10 w-64 p-2 bg-white rounded-md shadow-lg text-sm text-gray-700 -mt-8 ml-6">
-										Only select folders containing .dicom files
-									</div>
-								)}
 								<input
-									type="file"
-									id="ctScan"
-									name="ctScan"
-									className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
-									directory="" webkitdirectory="" // Attributes to allow directory selection
+									type="text"
+									id="patientId"
+									name="patientId"
+									value={patientId}
+									onChange={(e) => setPatientId(e.target.value)}
+									className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
+									placeholder="Enter Patient ID"
 								/>
 							</div>
 
-							{/* Stent Graft Specifications */}
+							{/*/!* CT Scan Upload *!/*/}
+							{/*<div className="mb-4 relative">*/}
+							{/*	<label htmlFor="ctScan"*/}
+							{/*		   className="block text-sm font-medium text-gray-700 flex items-center">*/}
+							{/*		CT Scan Upload*/}
+							{/*		<span*/}
+							{/*			className="ml-1 inline-block text-gray-500 cursor-help"*/}
+							{/*			onMouseEnter={() => setShowTooltip(true)}*/}
+							{/*			onMouseLeave={() => setShowTooltip(false)}*/}
+							{/*			onTouchStart={handleTooltipVisibility}*/}
+							{/*		>*/}
+							{/*			<InformationCircleIcon className="h-5 w-5"/>*/}
+							{/*		</span>*/}
+							{/*	</label>*/}
+							{/*	{showTooltip && (*/}
+							{/*		<div*/}
+							{/*			className="absolute z-10 w-64 p-2 bg-white rounded-md shadow-lg text-sm text-gray-700 -mt-8 ml-6">*/}
+							{/*			Only select folders containing .dicom files*/}
+							{/*		</div>*/}
+							{/*	)}*/}
+							{/*	<input*/}
+							{/*		type="file"*/}
+							{/*		id="ctScan"*/}
+							{/*		name="ctScan"*/}
+							{/*		className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"*/}
+							{/*		directory="" webkitdirectory="" // Attributes to allow directory selection*/}
+							{/*	/>*/}
+							{/*</div>*/}
+
+							<h3>Stent Graft Sizing</h3>
+
+							{/* Stent Graft Bifurcation Specifications */}
 							<div className="mb-4">
-								<label htmlFor="sgSize" className="block text-sm font-medium text-gray-700">Stent Graft
-									Size</label>
-								<input type="text" id="sgSize" name="sgSize"
-									   className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
-									   placeholder="Enter SG Size"/>
+								<label htmlFor="sgBifurcation" className="block text-sm font-medium text-gray-700">Stent
+									Bifurcation</label>
+								<select
+									id="sgBifurcation"
+									name="sgBifurcation"
+									value={sgBifurcation}
+									onChange={(e) => setSgBifurcation(e.target.value)}
+									className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md"
+								>
+									<option value="" disabled hidden>Choose SG Bifurcation</option>
+									<option value="ETBF_25_13_C_124_E">ETBF 25 13 C 124 E</option>
+									<option value="ETBF_25_13_C_145_E">ETBF 25 13 C 145 E</option>
+									<option value="ETBF_28_13_C_124_E">ETBF 28 13 C 124 E</option>
+									<option value="ETBF_28_13_C_145_E">ETBF 28 13 C 145 E</option>
+									<option value="ETBF_32_16_C_124_E">ETBF 32 16 C 124 E</option>
+									<option value="ETBF_32_16_C_145_E">ETBF 32 16 C 145 E</option>
+									<option value="Other">Other</option>
+								</select>
 							</div>
 
-							{/* Suggested Deployment Locations */}
+							{/* Iliac Limb Sizing Specifications */}
 							<div className="mb-4">
-								<label htmlFor="deploymentLocation" className="block text-sm font-medium text-gray-700">Suggested
-									Deployment Location</label>
-								<input type="text" id="deploymentLocation" name="deploymentLocation"
-									   className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
-									   placeholder="Enter Deployment Location"/>
+								<label htmlFor="iliacLimbSizing" className="block text-sm font-medium text-gray-700">Iliac
+									Limb Sizing</label>
+								<select
+									id="iliacLimbSizing"
+									name="iliacLimbSizing"
+									value={iliacLimbSizing}
+									onChange={(e) => setIliacLimbSizing(e.target.value)}
+									className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none sm:text-sm rounded-md"
+								>
+									<option value="" disabled hidden>Select Iliac Limb Size</option>
+									<option value="ETLW_16_13_C_124_E">ETLW 16 13 C 124 E</option>
+									<option value="ETLW_16_13_C_156_E">ETLW 16 13 C 156 E</option>
+									<option value="ETLW_16_16_C_124_E">ETLW 16 16 C 124 E</option>
+									<option value="ETLW_16_16_C_156_E">ETLW 16 16 C 156 E</option>
+									<option value="ETLW_16_20_C_124_E">ETLW 16 20 C 124 E</option>
+									<option value="ETLW_16_20_C_156_E">ETLW 16 20 C 156 E</option>
+									<option value="Other">Other</option>
+								</select>
 							</div>
 
-							{/* Simulation Settings */}
-							<div className="mb-4">
-								<label htmlFor="simulationSettings" className="block text-sm font-medium text-gray-700">Simulation
-									Settings</label>
-								{/* Additional inputs or dropdowns for FEA settings */}
-							</div>
+							{/*/!* Suggested Deployment Locations *!/*/}
+							{/*<div className="mb-4">*/}
+							{/*	<label htmlFor="deploymentLocation" className="block text-sm font-medium text-gray-700">Suggested*/}
+							{/*		Deployment Location</label>*/}
+							{/*	<input type="text" id="deploymentLocation" name="deploymentLocation"*/}
+							{/*		   className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"*/}
+							{/*		   placeholder="Enter Deployment Location"/>*/}
+							{/*</div>*/}
 
-							<button type="submit"
-								className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600">Start
-								Simulation
+							{/*/!* Simulation Settings *!/*/}
+							{/*<div className="mb-4">*/}
+							{/*	<label htmlFor="simulationSettings" className="block text-sm font-medium text-gray-700">Simulation*/}
+							{/*		Settings</label>*/}
+							{/*	/!* Additional inputs or dropdowns for FEA settings *!/*/}
+							{/*</div>*/}
+
+							<button
+								type="submit"
+								onClick={handleContinueJobSetup}
+								className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
+							>
+								Continue Job Setup
 							</button>
 						</div>
 					</div>
@@ -213,7 +261,8 @@ export default function Home() {
 								<ul className="list-disc space-y-2 ml-4">
 									<li><b>Unsuccessful</b></li>
 									<li><b>Successful, regular post-op observation required</b></li>
-									<li><b>Successful, no complications</b> means that at no point in the aortic tissue or
+									<li><b>Successful, no complications</b> means that at no point in the aortic tissue
+										or
 										stent-graft did the stresses/displacements exceed a conservative safety factor,
 									</li>
 									<li><b>Successful, minor post-op observation required</b> means that
@@ -226,7 +275,7 @@ export default function Home() {
 						<div className="overflow-auto px-4">
 							{finishedJobs.slice(0, 2).map(job => (
 								<div key={job.id}
-									className="mb-4 p-2 border border-gray-300 rounded-md  cursor-pointer hover:border-nhs-light-blue">
+									 className="mb-4 p-2 border border-gray-300 rounded-md  cursor-pointer hover:border-nhs-light-blue">
 									<h3 className="text-md font-medium">{job.name}</h3>
 									<p className="text-sm mb-1"><strong>Date Completed:</strong> {job.dateCompleted}</p>
 									<p className="text-sm mb-1"><strong>Outcome:</strong> {job.outcome}</p>
