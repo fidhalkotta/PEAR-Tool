@@ -10,7 +10,7 @@ export default function Login() {
 	const router = useRouter();
 
 	const handleLogin = () => {
-		if (username === "fidhal@peartool.com" && password === "fidhal")
+		if (username === "fidhal@peartool.com" && password === "password123")
 			router.push("/login/2fa");
 		else
 			alert("Incorrect username or password");

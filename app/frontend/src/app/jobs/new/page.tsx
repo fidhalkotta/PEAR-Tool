@@ -1,9 +1,12 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import MainLayout from "@/app/layouts/mainLayout";
 // Import your layout or other necessary components
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
+
+import File3DViewer from "@/components/File3DViewer";
 
 export default function NewJob() {
 	// Using the new useSearchParams hook for handling URL search parameters
@@ -13,11 +16,17 @@ export default function NewJob() {
 	const [sgBifurcation, setSgBifurcation] = useState("");
 	const [iliacLimbSizing, setIliacLimbSizing] = useState("");
 	const [proximalNeckDimension, setProximalNeckDimension] = useState(20);
+	const [fileUploaded, setFileUploaded] = useState(false);
 
 	const [showTooltip, setShowTooltip] = useState(false);
 
 	const handleTooltipVisibility = () => {
 		setShowTooltip(!showTooltip);
+	};
+
+	const handleFileUpload = (event) => {
+		if (event.target.files.length > 0)
+			setFileUploaded(true); // Set to true when a file is selected
 	};
 
 	useEffect(() => {
@@ -82,7 +91,8 @@ export default function NewJob() {
 									id="ctScan"
 									name="ctScan"
 									className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
-									directory="" webkitdirectory="" // Attributes to allow directory selection
+									directory="" webkitdirectory=""
+									onChange={handleFileUpload}
 								/>
 							</div>
 
@@ -181,20 +191,24 @@ export default function NewJob() {
 							<h2 className="font-bold text-lg mb-4">Positioning 3D Viewer</h2>
 							{/* Placeholder for 3D Viewer */}
 							<div className="bg-gray-200 h-full flex justify-center items-center">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									className="h-24 w-24 text-gray-400"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth={2}
-										d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-									/>
-								</svg>
+								{fileUploaded ? (
+									<File3DViewer/>
+								) : (
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										className="h-24 w-24 text-gray-400"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+										/>
+									</svg>
+								)}
 							</div>
 						</div>
 					</div>
