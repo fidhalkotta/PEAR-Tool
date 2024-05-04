@@ -1,7 +1,21 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import MinimalLayout from "@/app/layouts/minimalLayout";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const router = useRouter();
+
+	const handleLogin = () => {
+		if (username === "fidhal@peartool.com" && password === "fidhal")
+			router.push("/login/2fa");
+		else
+			alert("Incorrect username or password");
+	};
+
 	return (
 		<MinimalLayout>
 			<div className="flex flex-col lg:mx-64 md:m-32 sm:m-24 m-16">
@@ -12,11 +26,12 @@ export default function Login() {
 				</div>
 				<div className="flex flex-col">
 					<p className="mb-2">Username</p>
-					<input type="text" id="username" name="username" className="border-2 border-gray-300 rounded-md p-2 mb-4" />
+					<input type="text" value={username} onChange={(e) => setUsername(e.target.value)}
+						className="border-2 border-gray-300 rounded-md p-2 mb-4" />
 					<p className="mb-2">Password</p>
-					<input type="password" id="password" name="password" className="border-2 border-gray-300 rounded-md p-2 mb-4" />
-					<a href="/home" className="bg-black text-white px-4 py-2 rounded text-center">Login</a>
-
+					<input type="password" value={password} onChange={(e) => setPassword(e.target.value)}
+											 className="border-2 border-gray-300 rounded-md p-2 mb-4" />
+					<button onClick={handleLogin} className="bg-black text-white px-4 py-2 rounded text-center">Login</button>
 					<div className="flex items-center my-2">
 						<div className="border-t-2 border-gray-300 flex-grow"></div>
 						<div className="mx-4">or</div>
@@ -24,10 +39,8 @@ export default function Login() {
 					</div>
 					<a href="/home" className="bg-nhs-blue text-white px-4 py-2 rounded text-center">Login with NHS</a>
 				</div>
-
 			</div>
 		</MinimalLayout>
-
 	);
 }
 
