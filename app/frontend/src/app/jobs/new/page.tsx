@@ -16,7 +16,10 @@ export default function NewJob() {
 	const [sgBifurcation, setSgBifurcation] = useState("");
 	const [iliacLimbSizing, setIliacLimbSizing] = useState("");
 	const [proximalNeckDimension, setProximalNeckDimension] = useState(20);
+
 	const [fileUploaded, setFileUploaded] = useState(false);
+	const [viewerLabel, setViewerLabel] = useState("Positioning 3D Viewer");
+	const [loading, setLoading] = useState(false);
 
 	const [showTooltip, setShowTooltip] = useState(false);
 
@@ -25,8 +28,17 @@ export default function NewJob() {
 	};
 
 	const handleFileUpload = (event) => {
-		if (event.target.files.length > 0)
-			setFileUploaded(true); // Set to true when a file is selected
+		if (event.target.files.length > 0) {
+			setFileUploaded(false);
+			setLoading(true);
+			setViewerLabel("Processing CT Scans...");
+
+			setTimeout(() => {
+				setLoading(false);
+				setFileUploaded(true);
+				setViewerLabel("Positioning 3D Viewer");
+			}, 5000); // Delay for 5 seconds
+		}
 	};
 
 	useEffect(() => {
@@ -188,25 +200,12 @@ export default function NewJob() {
 							</button>
 						</div>
 						<div className="w-1/2 mx-4">
-							<h2 className="font-bold text-lg mb-4">Positioning 3D Viewer</h2>
+							<h2 className="font-bold text-lg mb-4">{viewerLabel} {loading && <span className="animate-spin">🔄</span>}</h2>
 							{/* Placeholder for 3D Viewer */}
 							<div className="bg-gray-200 h-full flex justify-center items-center">
-								{fileUploaded ? (
-									<File3DViewer/>
-								) : (
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										className="h-24 w-24 text-gray-400"
-										fill="none"
-										viewBox="0 0 24 24"
-										stroke="currentColor"
-									>
-										<path
-											strokeLinecap="round"
-											strokeLinejoin="round"
-											strokeWidth={2}
-											d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-										/>
+								{fileUploaded ? <File3DViewer/> : (
+									<svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
 									</svg>
 								)}
 							</div>
