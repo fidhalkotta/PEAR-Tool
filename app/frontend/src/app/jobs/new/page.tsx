@@ -14,6 +14,7 @@ export default function NewJob() {
 	const searchParams = useSearchParams();
 
 	const [patientId, setPatientId] = useState("");
+	const [patientName, setPatientName] = useState("");
 	const [sgBifurcation, setSgBifurcation] = useState("");
 	const [iliacLimbSizing, setIliacLimbSizing] = useState("");
 	const [proximalNeckDimension, setProximalNeckDimension] = useState(20);
@@ -57,10 +58,12 @@ export default function NewJob() {
 		if (!searchParams) return;
 		// Set state from search parameters
 		const patientIdParam = searchParams.get("patientId");
+		const patientNameParam = searchParams.get("patientName");
 		const sgBifurcationParam = searchParams.get("sgBifurcation");
 		const iliacLimbSizingParam = searchParams.get("iliacLimbSizing");
 
 		if (patientIdParam) setPatientId(patientIdParam);
+		if (patientNameParam) setPatientName(patientNameParam);
 		if (sgBifurcationParam) setSgBifurcation(sgBifurcationParam);
 		if (iliacLimbSizingParam) setIliacLimbSizing(iliacLimbSizingParam);
 	}, [searchParams]);
@@ -75,6 +78,20 @@ export default function NewJob() {
 						<div className="w-1/2 mx-4">
 
 							<h2 className="font-bold text-lg mb-4">Create Job</h2>
+
+							{/* Patient Name */}
+							<div className="mb-4">
+								<label htmlFor="patientName" className="block text-sm font-medium text-gray-700">Patient Name</label>
+								<input
+									type="text"
+									id="patientName"
+									name="patientName"
+									value={patientName}
+									onChange={(e) => setPatientName(e.target.value)}
+									className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
+									placeholder="Enter Patient Name"
+								/>
+							</div>
 
 							{/* Patient and Procedure Information */}
 							<div className="mb-4">
@@ -222,18 +239,9 @@ export default function NewJob() {
 								</div>
 							</div>
 
-							{/* Suggested Deployment Locations */}
-							<div className="mb-4">
-								<label htmlFor="deploymentLocation" className="block text-sm font-medium text-gray-700">Suggested
-									Deployment Location</label>
-								<input type="text" id="deploymentLocation" name="deploymentLocation"
-									   className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
-									   placeholder="Enter Deployment Location"/>
-							</div>
-
 							<button
 								type="submit"
-								onClick={() => alert("Submitted to Job Queue")}
+								onClick={() => alert("Submitted to Job Queue with Job ID:   #72211")}
 								className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600"
 							>
 								Submit to Job Queue

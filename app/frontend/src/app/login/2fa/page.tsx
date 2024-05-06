@@ -38,7 +38,7 @@ export default function TwoFactorAuth() {
 	return (
 		<MinimalLayout>
 			<div className="flex flex-col items-center justify-center h-screen">
-				<h1 className="text-2xl font-bold mb-4">Check your email and enter your 2FA code</h1>
+				<h1 className="text-2xl font-bold mb-4">Check your phone and enter the 2FA code</h1>
 				<div className="flex space-x-2">
 					{inputs.map((_, index) => (
 						<input

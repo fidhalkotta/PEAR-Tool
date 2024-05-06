@@ -16,6 +16,7 @@ export default function Home() {
 	const [showFinishedJobsTooltip, setShowFinishedJobsTooltip] = useState(false);
 
 	const [patientId, setPatientId] = useState("");
+	const [patientName, setPatientName] = useState("");
 	const [sgBifurcation, setSgBifurcation] = useState("");
 	const [iliacLimbSizing, setIliacLimbSizing] = useState("");
 
@@ -23,19 +24,24 @@ export default function Home() {
 	const handleContinueJobSetup = (event) => {
 		event.preventDefault();
 
-		router.push("/jobs/new?patientId=" + patientId + "&sgBifurcation=" + sgBifurcation + "&iliacLimbSizing=" + iliacLimbSizing);
+		router.push("/jobs/new?patientId=" + patientId +
+			"&sgBifurcation=" + sgBifurcation +
+			"&iliacLimbSizing=" + iliacLimbSizing +
+			"&patientName=" + patientName
+		);
 	};
 
 	const [jobs] = useState([
-		{ id: "#47681", name: "<Redacted>", progress: 63 },
-		{ id: "#19025", name: "<Redacted>", progress: 13 },
-		{ id: "#72211", name: "<Redacted>", progress: 41 },
-		{ id: "#67102", name: "<Redacted>", progress: 89 },
-		{ id: "#90157", name: "<Redacted>", progress: 27 }
-		// { id: "#47681", name: "John Stevenson", progress: 63 },
-		// { id: "#19025", name: "Mark Brian", progress: 13 },
-		// { id: "#72211", name: "Olivia Carey", progress: 41 },
-		// { id: "#67102", name: "Hamza Den", progress: 89 }q
+		// { id: "#47681", name: "<Redacted>", progress: 63 },
+		// { id: "#19025", name: "<Redacted>", progress: 13 },
+		// { id: "#72211", name: "<Redacted>", progress: 41 },
+		// { id: "#67102", name: "<Redacted>", progress: 89 },
+		// { id: "#90157", name: "<Redacted>", progress: 27 }
+		{ id: "#47681", name: "John Stevenson", progress: 63 },
+		{ id: "#19025", name: "Mark Brian", progress: 13 },
+		{ id: "#72211", name: "Olivia Carey", progress: 41 },
+		{ id: "#67102", name: "Hamza Den", progress: 89 },
+		{ id: "#90157", name: "Marko Polo", progress: 27 }
 		// ... other jobs
 	]);
 
@@ -84,6 +90,21 @@ export default function Home() {
 					<div className="border rounded-lg p-4 shadow-sm hover:shadow-md">
 						<h2 className="font-bold text-lg mb-2">Create Job</h2>
 						<div className="container mx-auto p-4">
+
+							{/* Patient Name */}
+							<div className="mb-4">
+								<label htmlFor="patientName" className="block text-sm font-medium text-gray-700">Patient Name</label>
+								<input
+									type="text"
+									id="patientName"
+									name="patientName"
+									value={patientName}
+									onChange={(e) => setPatientName(e.target.value)}
+									className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none"
+									placeholder="Enter Patient Name"
+								/>
+							</div>
+
 							{/* Patient and Procedure Information */}
 							<div className="mb-4">
 								<label htmlFor="patientId" className="block text-sm font-medium text-gray-700">Patient
