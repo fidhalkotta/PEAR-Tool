@@ -39,13 +39,20 @@ export default function Home() {
 		// { id: "#90157", name: "<Redacted>", progress: 27 }
 		{ id: "#47681", name: "John Stevenson", progress: 63 },
 		{ id: "#19025", name: "Mark Brian", progress: 13 },
-		{ id: "#72211", name: "Olivia Carey", progress: 41 },
+		{ id: "#72211", name: "Steve Courtney", progress: 41 },
 		{ id: "#67102", name: "Hamza Den", progress: 89 },
 		{ id: "#90157", name: "Marko Polo", progress: 27 }
 		// ... other jobs
 	]);
 
 	const [finishedJobs] = useState([
+		{
+			id: "job-000",
+			name: "EVAR Procedure #72211",
+			dateCompleted: "2024-05-07",
+			outcome: "Successful, minor post-op observation required",
+			followUp: "Follow-up in 1 month for observation"
+		},
 		{
 			id: "job-001",
 			name: "EVAR Procedure #17820",
@@ -59,13 +66,6 @@ export default function Home() {
 			dateCompleted: "2023-02-20",
 			outcome: "Successful, minor post-op observation required",
 			followUp: "Follow-up in 1 month for observation"
-		},
-		{
-			id: "job-003",
-			name: "EVAR Procedure 3",
-			dateCompleted: "2023-03-05",
-			outcome: "Complications encountered, additional intervention needed",
-			followUp: "Immediate follow-up required, schedule additional procedure"
 		}
 		// ... more jobs
 	]);
@@ -230,7 +230,7 @@ export default function Home() {
 									<div key={job.id} className="flex justify-between items-center mb-4 py-3 px-2
 									 border border-gray-300 rounded-md shadow-sm cursor-pointer hover:border-nhs-light-blue"
 										 onClick={() => openModal(job)}>
-										<span className="text-sm font-medium">{job.id}</span>
+										<span className="text-sm font-medium">{job.id} {job.name}</span>
 										<div className="w-8/12">
 											<Progress progress={job.progress} size="lg" color={getColor(job.progress)}/>
 										</div>
@@ -248,16 +248,21 @@ export default function Home() {
 						{isModalOpen && (
 							<div id="myModal" className="modal">
 								<div className="modal-content">
-									<span className="close" onClick={() => setIsModalOpen(false)}>&times;</span>
+									<span className="close text-lg" onClick={() => setIsModalOpen(false)}>&times;</span>
 									<h3 id="modalTitle"
-										className="text-lg font-bold">{selectedJob?.id} {selectedJob?.name}</h3>
-									<p id="modalDescription" className="mt-4">Description about this job, medical notes
-										and things to remember</p>
-									<h4 className="mt-4 font-bold">Uploaded Files</h4>
-									<ul id="modalFiles">
-										<li>File1.jpg</li>
-										<li>AortaCloseup.png</li>
-									</ul>
+										className="text-lg font-semibold">{selectedJob?.id} {selectedJob?.name}</h3>
+									<p id="modalDescription" className="mt-4">
+										Patient ID: P-1234567 <br/>
+										Stent Bifurcation: ETBF 25 13 C 124 E <br/>
+										Iliac Limb Sizing: ETLW 16 16 C 124 E
+									</p>
+									<p id="modalJobDetails" className="mt-4">
+										Latest update: <br/>
+										<span className="text-gray-600 italic">2024-05-07 15:12:06 : Completed meshing of aortic tissue and stent-graft</span>
+									</p>
+									<p id="modelETA" className="mt-4">
+										ETA: 13 hours
+									</p>
 								</div>
 							</div>
 						)}
@@ -318,35 +323,36 @@ export default function Home() {
 						<h2 className="font-bold text-lg mb-2">Latest Insights</h2>
 						<div className="px-4">
 							<div className="flex flex-col md:flex-row">
-								<div className="flex-1 text-sm mb-4 md:mb-0">
-									<h3 className="text-md font-semibold mb-2">EVAR Procedure Analysis - Job #17820</h3>
+								<div className="flex-1 text-sm mr-4 mb-2 md:mb-0">
+									<h3 className="text-md font-semibold mb-2">EVAR Procedure Analysis - Job #72211</h3>
 
-									{/* Job and Patient Information */}
+									<h3 className="mb-1">Within Green Landing Zones</h3>
+
 									<div className="mb-4">
-										<h4 className="font-semibold mb-1">Job Details:</h4>
-										<p><strong>Stent Size:</strong> 28mm x 120mm</p>
-										<p><strong>Patient Aortic Diameter:</strong> 32mm</p>
+										<label htmlFor="aorticDilation" className="block text-sm font-medium text-gray-700">Maximum Aortic Neck Dilatation</label>
+										<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟠 7%</p>
 									</div>
 
-									{/* Stress and Strain Insights */}
 									<div className="mb-4">
-										<h4 className="font-semibold mb-1">Mechanical Insights:</h4>
-										<p><strong>Max Stress Location:</strong> Anterior aortic wall</p>
-										<p><strong>Max Stress Value:</strong> 450 Pa</p>
-										<p><strong>Max Strain Location:</strong> Proximal neck of aneurysm</p>
-										<p><strong>Max Strain Value:</strong> 6.5%</p>
-										{/* Additional mechanical insights */}
+										<label htmlFor="ifuViolations" className="block text-sm font-medium text-gray-700">IFU Violations</label>
+										<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟢 0 Violations</p>
 									</div>
 
-									{/* Other insights, if necessary */}
+									<div className="mb-4">
+										<label htmlFor="endoleakRisk" className="block text-sm font-medium text-gray-700">Endoleak Risk</label>
+										<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟢 Low Risk of Endoleaks within 6 months</p>
+									</div>
 								</div>
-								<img src="images/AAA-ct-scan.png" alt="Aorta"
-									 className="md:w-1/3 w-full h-auto self-center"/>
+
+								<img src="jobs/72211/1.png"
+									 className="md:w-2/5 w-full h-auto self-center"/>
 							</div>
 
 							<button
-								className="w-full bg-cyan-500 text-white p-2 rounded hover:bg-cyan-600 mt-[31px]">More
-								Detail
+								className="w-full bg-cyan-500 text-white p-2 rounded hover:bg-cyan-600 mt-[31px]"
+								onClick={() => router.push("/jobs/72211")}
+							>
+								More Detail
 							</button>
 						</div>
 					</div>
