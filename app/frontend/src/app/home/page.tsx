@@ -322,15 +322,18 @@ export default function Home() {
 					<div className="border rounded-lg p-4 shadow-sm hover:shadow-md">
 						<h2 className="font-bold text-lg mb-2">Latest Insights</h2>
 						<div className="px-4">
+
+							{/*comment this one out in demo*/}
+
 							<div className="flex flex-col md:flex-row">
 								<div className="flex-1 text-sm mr-4 mb-2 md:mb-0">
-									<h3 className="text-md font-semibold mb-2">EVAR Procedure Analysis - Job #72211</h3>
+									<h3 className="text-md font-semibold mb-2">EVAR Procedure Analysis - Job #17820</h3>
 
 									<h3 className="mb-1">Within Green Landing Zones</h3>
 
 									<div className="mb-4">
 										<label htmlFor="aorticDilation" className="block text-sm font-medium text-gray-700">Maximum Aortic Neck Dilatation</label>
-										<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟠 7%</p>
+										<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟢 2%</p>
 									</div>
 
 									<div className="mb-4">
@@ -344,9 +347,35 @@ export default function Home() {
 									</div>
 								</div>
 
-								<img src="jobs/72211/1.png"
+								<img src="jobs/17820/0.png"
 									 className="md:w-2/5 w-full h-auto self-center"/>
 							</div>
+
+							{/*<div className="flex flex-col md:flex-row">*/}
+							{/*	<div className="flex-1 text-sm mr-4 mb-2 md:mb-0">*/}
+							{/*		<h3 className="text-md font-semibold mb-2">EVAR Procedure Analysis - Job #72211</h3>*/}
+
+							{/*		<h3 className="mb-1">Within Green Landing Zones</h3>*/}
+
+							{/*		<div className="mb-4">*/}
+							{/*			<label htmlFor="aorticDilation" className="block text-sm font-medium text-gray-700">Maximum Aortic Neck Dilatation</label>*/}
+							{/*			<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟠 7%</p>*/}
+							{/*		</div>*/}
+
+							{/*		<div className="mb-4">*/}
+							{/*			<label htmlFor="ifuViolations" className="block text-sm font-medium text-gray-700">IFU Violations</label>*/}
+							{/*			<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟢 0 Violations</p>*/}
+							{/*		</div>*/}
+
+							{/*		<div className="mb-4">*/}
+							{/*			<label htmlFor="endoleakRisk" className="block text-sm font-medium text-gray-700">Endoleak Risk</label>*/}
+							{/*			<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟢 Low Risk of Endoleaks within 6 months</p>*/}
+							{/*		</div>*/}
+							{/*	</div>*/}
+
+							{/*	<img src="jobs/72211/1.png"*/}
+							{/*		 className="md:w-2/5 w-full h-auto self-center"/>*/}
+							{/*</div>*/}
 
 							<button
 								className="w-full bg-cyan-500 text-white p-2 rounded hover:bg-cyan-600 mt-[31px]"
