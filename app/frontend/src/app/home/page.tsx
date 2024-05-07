@@ -296,7 +296,11 @@ export default function Home() {
 						<div className="overflow-auto px-4">
 							{finishedJobs.slice(0, 2).map(job => (
 								<div key={job.id}
-									 className="mb-4 p-2 border border-gray-300 rounded-md  cursor-pointer hover:border-nhs-light-blue">
+									 className="mb-4 p-2 border border-gray-300 rounded-md  cursor-pointer hover:border-nhs-light-blue"
+									onClick={() => {
+										// router.push(`/jobs/${job.id}`);
+										router.push("/jobs/72211");
+									}}>
 									<h3 className="text-md font-medium">{job.name}</h3>
 									<p className="text-sm mb-1"><strong>Date Completed:</strong> {job.dateCompleted}</p>
 									<p className="text-sm mb-1"><strong>Outcome:</strong> {job.outcome}</p>

@@ -8,8 +8,11 @@ import MainLayout from "@/app/layouts/mainLayout";
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
 
 import File3DViewer from "@/components/File3DViewer";
+import ResultsCarousel from "@/components/ResultsCarousel";
 
 export default function NewJob() {
+	const [images, setImages] = useState([]);
+
 	// Using the new useSearchParams hook for handling URL search parameters
 	const searchParams = useSearchParams();
 
@@ -21,7 +24,8 @@ export default function NewJob() {
 	const positionInputRef = useRef(null);
 
 	const [fileUploaded, setFileUploaded] = useState(false);
-	const [viewerLabel, setViewerLabel] = useState("Positioning 3D Viewer");
+	const [viewerLabel, setViewerLabel] = useState("3D Viewer");
+	const [show3DViewer, setShow3DViewer] = useState(true); // True = 3D, False = 2D
 	const [loading, setLoading] = useState(false);
 
 	const [showTooltip, setShowTooltip] = useState(false);
@@ -33,11 +37,25 @@ export default function NewJob() {
 		setShowTooltip(!showTooltip);
 	};
 
+	const toggleViewer = () => {
+		setShow3DViewer((prev) => !prev);
+	};
+
 	const handleFileUpload = (event) => {
 		if (event.target.files.length > 0) {
 			setFileUploaded(false);
 			setLoading(true);
 			setViewerLabel("Processing CT Scans...");
+
+			setImages([
+				"./new/0.png",
+				"./new/1.png",
+				"./new/2.png",
+				"./new/3.png",
+				"./new/4.png",
+				"./new/5.png",
+				"./new/6.png"
+			]);
 
 			setTimeout(() => {
 				setLoading(false);
@@ -248,11 +266,37 @@ export default function NewJob() {
 							</button>
 						</div>
 						<div className="w-1/2 mx-4">
-							<h2 className="font-bold text-lg mb-4">{viewerLabel} {loading && <span className="animate-spin">🔄</span>}</h2>
-							<div className="bg-gray-200 h-full flex justify-center items-center">
-								{fileUploaded ? <File3DViewer/> : (
-									<svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+							<h2 className="font-bold text-lg mb-4">
+								{show3DViewer ? "Positioning 3D Viewer" : "2D Viewer"}
+								{" / "}
+								<span
+									className="text-gray-500 cursor-pointer hover:underline"
+									onClick={toggleViewer}
+								>
+									{show3DViewer ? "2D Viewer" : "Positioning 3D Viewer"}
+								</span>
+							</h2>
+							<div className="h-full flex justify-center items-center">
+								{fileUploaded ? (
+									show3DViewer ? (
+										<File3DViewer />
+									) : (
+										<ResultsCarousel images={images} />
+									)
+								) : (
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										className="h-24 w-24 text-gray-400"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+										/>
 									</svg>
 								)}
 							</div>

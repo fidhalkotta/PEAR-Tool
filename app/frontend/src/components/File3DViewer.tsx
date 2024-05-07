@@ -11,6 +11,7 @@ const style = {
 export default function File3DViewer() {
 	return (
 		<StlViewer
+			className="bg-gray-200"
 			style={style}
 			orbitControls
 			shadows
