@@ -69,7 +69,7 @@ export default function CardSection() {
 	};
 
 	return (
-		<div className="overflow-y-scroll h-[calc(100vh-10rem)]">
+		<div className="overflow-y-scroll  h-[calc(100vh-8rem)]">
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
 				{cards.map((card) => (
 					<div key={card.id} className="bg-white rounded-lg shadow-md p-4 cursor-pointer"

@@ -10,8 +10,10 @@ export default function Default() {
 	return (
 		<MinimalLayout>
 			<PosterHeader/>
-			<div className="flex mt-[108px]">
-				<HeroVideo/>
+			<div className="flex mt-[116px] sm:mt-[98px] md:mt-[80px]">
+				<div className="hidden md:block">
+					<HeroVideo/>
+				</div>
 				<CardSection/>
 			</div>
 			{/*<div className="mt-8">*/}
