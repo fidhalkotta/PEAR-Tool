@@ -21,6 +21,7 @@ const config: Config = {
 				'nhs-light-blue': '#41B6E6',
 				'nhs-aqua-blue': '#00A9CE',
 				'nhs-pale-grey': '#E8EDEE',
+				'ucl_pink': '#DEB8C3'
 			},
 			animation: {
 				shake: 'shake 0.75s cubic-bezier(.36,.07,.19,.97) both',
