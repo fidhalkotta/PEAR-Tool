@@ -1,10 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import React, {FormEvent, useState} from "react";
+import {useRouter} from "next/navigation";
 import MainLayout from "@/app/layouts/mainLayout";
-import { Progress } from "flowbite-react";
-import { InformationCircleIcon } from "@heroicons/react/24/outline";
+import {Progress} from "flowbite-react";
+import {InformationCircleIcon} from "@heroicons/react/24/outline";
+
+interface Job {
+  id: string;
+  name: string;
+  progress: number;
+}
 
 export default function Home() {
 	const router = useRouter();
@@ -21,7 +27,7 @@ export default function Home() {
 	const [iliacLimbSizing, setIliacLimbSizing] = useState("");
 
 	// Function to handle the navigation with form values
-	const handleContinueJobSetup = (event) => {
+	const handleContinueJobSetup = (event: FormEvent)=> {
 		event.preventDefault();
 
 		router.push("/demo/jobs/new?patientId=" + patientId +
@@ -31,7 +37,7 @@ export default function Home() {
 		);
 	};
 
-	const [jobs] = useState([
+	const [jobs] = useState<Job[]>([
 		// { id: "#47681", name: "<Redacted>", progress: 63 },
 		// { id: "#19025", name: "<Redacted>", progress: 13 },
 		// { id: "#72211", name: "<Redacted>", progress: 41 },
@@ -71,7 +77,7 @@ export default function Home() {
 		// ... more jobs
 	]);
 
-	const openModal = (job) => {
+	const openModal = (job: Job) => {
 		console.log("openModal", job);
 		setSelectedJob(job);
 		setIsModalOpen(true);
