@@ -14,9 +14,9 @@ export default function NavigationBar() {
 				</Link>
 				<nav>
 					<ul className="flex space-x-4">
-						<li><Link href="/jobs" className="text-gray-700 hover:text-gray-900">Current Jobs</Link></li>
-						<li><a href="#" className="text-gray-700 hover:text-gray-900">Insights</a></li>
-						<li><a href="#" className="text-gray-700 hover:text-gray-900">Getting Started</a></li>
+						{/*<li><Link href="/jobs" className="text-gray-700 hover:text-gray-900">Current Jobs</Link></li>*/}
+						{/*<li><a href="#" className="text-gray-700 hover:text-gray-900">Insights</a></li>*/}
+						{/*<li><a href="#" className="text-gray-700 hover:text-gray-900">Getting Started</a></li>*/}
 					</ul>
 				</nav>
 				<div onClick={toggleDropdown} className="relative">

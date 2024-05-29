@@ -14,7 +14,7 @@ export default function ResultsCarousel({ images }) {
 	};
 
 	return (
-		<div className="flex flex-col items-center justify-center space-y-4">
+		<div className="flex flex-col items-center justify-center space-y-4 mb-4">
 			{images.length > 0 && (
 				<img src={images[current]} alt="Carousel" className="max-w-full h-auto"/>
 			)}

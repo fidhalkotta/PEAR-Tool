@@ -60,7 +60,7 @@ export default function NewJob() {
 			setTimeout(() => {
 				setLoading(false);
 				setFileUploaded(true);
-				setViewerLabel("Positioning 3D Viewer");
+				setViewerLabel("3D Viewer");
 
 				setShowSuggestions(true);
 				setSuggestions([
@@ -176,7 +176,7 @@ export default function NewJob() {
 													<td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{suggestion.size}</td>
 													<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{suggestion.cost}</td>
 													<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{suggestion.stock}</td>
-													<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{suggestion.description}</td>
+													<td className="px-6 py-4 whitespace-normal text-sm text-gray-500">{suggestion.description}</td>
 												</tr>
 											))}
 										</tbody>
@@ -200,8 +200,8 @@ export default function NewJob() {
 									<option value="" disabled hidden>Choose SG Bifurcation</option>
 									<option value="ETBF_25_13_C_124_E">ETBF 25 13 C 124 E</option>
 									<option value="ETBF_25_13_C_145_E">ETBF 25 13 C 145 E</option>
-									<option value="ETBF_28_13_C_124_E">ETBF 28 13 C 124 E ⭐</option>
-									<option value="ETBF_28_13_C_145_E">ETBF 28 13 C 145 E ⭐</option>
+									<option value="ETBF_28_13_C_124_E">ETBF 28 13 C 124 E ⭐⭐</option>
+									<option value="ETBF_28_13_C_145_E">ETBF 28 13 C 145 E ⭐⭐⭐</option>
 									<option value="ETBF_32_16_C_124_E">ETBF 32 16 C 124 E ⭐</option>
 									<option value="ETBF_32_16_C_145_E">ETBF 32 16 C 145 E</option>
 									<option value="Other">Other</option>
@@ -267,13 +267,13 @@ export default function NewJob() {
 						</div>
 						<div className="w-1/2 mx-4">
 							<h2 className="font-bold text-lg mb-4">
-								{show3DViewer ? "Positioning 3D Viewer" : "2D Viewer"}
+								{show3DViewer ? "3D Viewer" : "2D Viewer"}
 								{" / "}
 								<span
 									className="text-gray-500 cursor-pointer hover:underline"
 									onClick={toggleViewer}
 								>
-									{show3DViewer ? "2D Viewer" : "Positioning 3D Viewer"}
+									{show3DViewer ? "2D Viewer" : "3D Viewer"}
 								</span>
 							</h2>
 							<div className="h-full flex justify-center items-center">

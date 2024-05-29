@@ -37,11 +37,12 @@ export default function Home() {
 		// { id: "#72211", name: "<Redacted>", progress: 41 },
 		// { id: "#67102", name: "<Redacted>", progress: 89 },
 		// { id: "#90157", name: "<Redacted>", progress: 27 }
+
+		// { id: "#72211", name: "Steve Courtney", progress: 15 },
+		{ id: "#90157", name: "Marko Polo", progress: 27 },
+		{ id: "#19025", name: "Mark Brian", progress: 41 },
 		{ id: "#47681", name: "John Stevenson", progress: 63 },
-		{ id: "#19025", name: "Mark Brian", progress: 13 },
-		{ id: "#72211", name: "Steve Courtney", progress: 41 },
-		{ id: "#67102", name: "Hamza Den", progress: 89 },
-		{ id: "#90157", name: "Marko Polo", progress: 27 }
+		{ id: "#67102", name: "Hamza Den", progress: 89 }
 		// ... other jobs
 	]);
 
@@ -252,7 +253,7 @@ export default function Home() {
 									<h3 id="modalTitle"
 										className="text-lg font-semibold">{selectedJob?.id} {selectedJob?.name}</h3>
 									<p id="modalDescription" className="mt-4">
-										Patient ID: P-1234567 <br/>
+										Patient ID: P-6235 <br/>
 										Stent Bifurcation: ETBF 25 13 C 124 E <br/>
 										Iliac Limb Sizing: ETLW 16 16 C 124 E
 									</p>
@@ -325,41 +326,15 @@ export default function Home() {
 
 							{/*comment this one out in demo*/}
 
-							<div className="flex flex-col md:flex-row">
-								<div className="flex-1 text-sm mr-4 mb-2 md:mb-0">
-									<h3 className="text-md font-semibold mb-2">EVAR Procedure Analysis - Job #17820</h3>
-
-									<h3 className="mb-1">Within Green Landing Zones</h3>
-
-									<div className="mb-4">
-										<label htmlFor="aorticDilation" className="block text-sm font-medium text-gray-700">Maximum Aortic Neck Dilatation</label>
-										<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟢 2%</p>
-									</div>
-
-									<div className="mb-4">
-										<label htmlFor="ifuViolations" className="block text-sm font-medium text-gray-700">IFU Violations</label>
-										<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟢 0 Violations</p>
-									</div>
-
-									<div className="mb-4">
-										<label htmlFor="endoleakRisk" className="block text-sm font-medium text-gray-700">Endoleak Risk</label>
-										<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟢 Low Risk of Endoleaks within 6 months</p>
-									</div>
-								</div>
-
-								<img src="jobs/17820/0.png"
-									 className="md:w-2/5 w-full h-auto self-center"/>
-							</div>
-
 							{/*<div className="flex flex-col md:flex-row">*/}
 							{/*	<div className="flex-1 text-sm mr-4 mb-2 md:mb-0">*/}
-							{/*		<h3 className="text-md font-semibold mb-2">EVAR Procedure Analysis - Job #72211</h3>*/}
+							{/*		<h3 className="text-md font-semibold mb-2">EVAR Procedure Analysis - Job #17820</h3>*/}
 
 							{/*		<h3 className="mb-1">Within Green Landing Zones</h3>*/}
 
 							{/*		<div className="mb-4">*/}
 							{/*			<label htmlFor="aorticDilation" className="block text-sm font-medium text-gray-700">Maximum Aortic Neck Dilatation</label>*/}
-							{/*			<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟠 7%</p>*/}
+							{/*			<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟢 2%</p>*/}
 							{/*		</div>*/}
 
 							{/*		<div className="mb-4">*/}
@@ -373,9 +348,37 @@ export default function Home() {
 							{/*		</div>*/}
 							{/*	</div>*/}
 
-							{/*	<img src="jobs/72211/1.png"*/}
-							{/*		 className="md:w-2/5 w-full h-auto self-center"/>*/}
+							{/*	<img src="jobs/17820/0.png"*/}
+							{/*		 className="md:w-5/12 w-full h-auto self-center"/>*/}
 							{/*</div>*/}
+
+							{/*Below is Steven*/}
+
+							<div className="flex flex-col md:flex-row">
+								<div className="flex-1 text-sm mr-4 mb-2 md:mb-0">
+									<h3 className="text-md font-semibold mb-2">EVAR Procedure Analysis - Job #72211</h3>
+
+									<h3 className="mb-1">Within Green Landing Zones</h3>
+
+									<div className="mb-4">
+										<label htmlFor="aorticDilation" className="block text-sm font-medium text-gray-700">Maximum Aortic Neck Dilatation</label>
+										<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟠 7%</p>
+									</div>
+
+									<div className="mb-4">
+										<label htmlFor="ifuViolations" className="block text-sm font-medium text-gray-700">IFU Violations</label>
+										<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟢 0 Violations</p>
+									</div>
+
+									<div className="mb-4">
+										<label htmlFor="endoleakRisk" className="block text-sm font-medium text-gray-700">Endoleak Risk</label>
+										<p className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none">🟢 Low Risk of Endoleaks within 6 months</p>
+									</div>
+								</div>
+
+								<img src="jobs/72211/1.png"
+									 className="md:w-2/5 w-full h-auto self-center"/>
+							</div>
 
 							<button
 								className="w-full bg-cyan-500 text-white p-2 rounded hover:bg-cyan-600 mt-[31px]"
