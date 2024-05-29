@@ -9,7 +9,7 @@ export default function NavigationBar() {
 	return (
 		<div className="bg-gray-100 p-4 shadow-md">
 			<div className="container mx-auto flex justify-between items-center">
-				<Link href="/home" className="text-xl font-bold hover:text-teal-500 duration-150">
+				<Link href="/demo/home" className="text-xl font-bold hover:text-teal-500 duration-150">
 					PEAR-Tool
 				</Link>
 				<nav>

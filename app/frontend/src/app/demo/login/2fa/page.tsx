@@ -25,7 +25,7 @@ export default function TwoFactorAuth() {
 			if (newInputs.join("") === "202020") {
 				setStatus({ error: false, success: true });
 				setTimeout(() => {
-					router.push("/home");
+					router.push("/demo/home");
 				}, 600);
 			} else {
 				console.log("Incorrect 2FA code");

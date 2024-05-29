@@ -11,7 +11,7 @@ export default function Login() {
 
 	const handleLogin = () => {
 		if (username === "fidhal@peartool.com" && password === "password123")
-			router.push("/login/2fa");
+			router.push("/demo/login/2fa");
 		else
 			alert("Incorrect username or password");
 	};
@@ -37,7 +37,7 @@ export default function Login() {
 						<div className="mx-4">or</div>
 						<div className="border-t-2 border-gray-300 flex-grow"></div>
 					</div>
-					<a href="/home" className="bg-nhs-blue text-white px-4 py-2 rounded text-center">Login with NHS</a>
+					<a href="/demo/home" className="bg-nhs-blue text-white px-4 py-2 rounded text-center">Login with NHS</a>
 				</div>
 			</div>
 		</MinimalLayout>

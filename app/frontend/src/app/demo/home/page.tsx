@@ -24,7 +24,7 @@ export default function Home() {
 	const handleContinueJobSetup = (event) => {
 		event.preventDefault();
 
-		router.push("/jobs/new?patientId=" + patientId +
+		router.push("/demo/jobs/new?patientId=" + patientId +
 			"&sgBifurcation=" + sgBifurcation +
 			"&iliacLimbSizing=" + iliacLimbSizing +
 			"&patientName=" + patientName
@@ -304,8 +304,8 @@ export default function Home() {
 								<div key={job.id}
 									 className="mb-4 p-2 border border-gray-300 rounded-md  cursor-pointer hover:border-nhs-light-blue"
 									onClick={() => {
-										// router.push(`/jobs/${job.id}`);
-										router.push("/jobs/72211");
+										// router.push(`/demo/jobs/${job.id}`);
+										router.push("/demo/jobs/72211");
 									}}>
 									<h3 className="text-md font-medium">{job.name}</h3>
 									<p className="text-sm mb-1"><strong>Date Completed:</strong> {job.dateCompleted}</p>
@@ -382,7 +382,7 @@ export default function Home() {
 
 							<button
 								className="w-full bg-cyan-500 text-white p-2 rounded hover:bg-cyan-600 mt-[31px]"
-								onClick={() => router.push("/jobs/72211")}
+								onClick={() => router.push("/demo/jobs/72211")}
 							>
 								More Detail
 							</button>
