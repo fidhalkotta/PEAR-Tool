@@ -3,7 +3,7 @@ import React from "react";
 
 export default function HeroVideo() {
 	return (
-		<div className="sticky h-[calc(100vh-8rem)] bg-black">
+		<div className="md:sticky h-[calc(100vh-8rem)] bg-black">
 			<video className="h-full w-full object-cover rounded" autoPlay loop muted>
 				<source src="/videos/spinning_aorta_v2.mp4" type="video/mp4"/>
 				Your browser does not support the video tag.

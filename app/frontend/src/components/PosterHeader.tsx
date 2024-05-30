@@ -10,7 +10,7 @@ export default function PosterHeader() {
 				{/*<p className="text-white">Toby Bunn, Stephane Courtines, Mete Karabiyik, Fidhal Kotta, Ioanna Pierou, Marton Pohl, Onur*/}
 				{/*	Zaifoglu</p>*/}
 			</div>
-			<img src="/images/ucl_logo.png" alt="UCL Logo" className="h-16 md:h-20"/>
+			<img src="/images/ucl_logo.png" alt="UCL Logo" className="h-12 md:h-20"/>
 		</div>
 	);
 }
