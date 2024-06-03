@@ -35,8 +35,8 @@ export default function JobInsights() {
 			<div>
 
 				<div className="container mx-auto p-4">
-					<div className="flex h-screen">
-						<div className="w-1/2 mx-4">
+					<div className="flex flex-col md:flex-row h-screen">
+						<div className="w-full md:w-1/2 mx-0 md:mx-0 mb-4 md:mb-0">
 
 							<div>
 								<h2 className="font-bold text-lg mb-4">Job ID: {jobId}</h2>
@@ -127,7 +127,7 @@ export default function JobInsights() {
 							</div>
 
 						</div>
-						<div className="w-1/2 mx-4">
+						<div className="w-full md:w-1/2 mx-4">
 							<h2 className="font-bold text-lg mb-4">Imaging Results</h2>
 							<ResultsCarousel images={images} />
 

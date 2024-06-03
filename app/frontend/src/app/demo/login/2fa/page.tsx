@@ -21,24 +21,29 @@ export default function TwoFactorAuth() {
 
 		if (index < 5 && event.target.value)
 			inputRefs.current[index + 1].focus();
-		 else if (index === 5) {
-			if (newInputs.join("") === "202020") {
-				setStatus({ error: false, success: true });
-				setTimeout(() => {
-					router.push("/demo/home");
-				}, 600);
-			} else {
-				console.log("Incorrect 2FA code");
-				setStatus({ error: true, success: false });
-				setTimeout(() => setStatus({ error: false, success: false }), 750);
-			}
+		else if (index === 5) {
+			setStatus({ error: false, success: true });
+			setTimeout(() => {
+				router.push("/demo/home");
+			}, 600);
+			// if (newInputs.join("") === "202020") {
+			// 	setStatus({ error: false, success: true });
+			// 	setTimeout(() => {
+			// 		router.push("/demo/home");
+			// 	}, 600);
+			// } else {
+			// 	console.log("Incorrect 2FA code");
+			// 	setStatus({ error: true, success: false });
+			// 	setTimeout(() => setStatus({ error: false, success: false }), 750);
+			// }
 		}
 	};
 
 	return (
 		<MinimalLayout>
 			<div className="flex flex-col items-center justify-center h-screen">
-				<h1 className="text-2xl font-bold mb-4">Check your phone and enter the 2FA code</h1>
+				<h1 className="text-2xl font-bold mb-2">Check your phone and enter the 2FA code</h1>
+				<h2 className="text-lg font-bold mb-4 text-gray-500">Enter Anything for Demo</h2>
 				<div className="flex space-x-2">
 					{inputs.map((_, index) => (
 						<input

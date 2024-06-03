@@ -10,10 +10,11 @@ export default function Login() {
 	const router = useRouter();
 
 	const handleLogin = () => {
-		if (username === "fidhal@peartool.com" && password === "password123")
-			router.push("/demo/login/2fa");
-		else
-			alert("Incorrect username or password");
+		router.push("/demo/login/2fa");
+		// if (username === "fidhal@peartool.com" && password === "password123")
+		// 	router.push("/demo/login/2fa");
+		// else
+		// 	alert("Incorrect username or password");
 	};
 
 	return (
@@ -27,17 +28,23 @@ export default function Login() {
 				<div className="flex flex-col">
 					<p className="mb-2">Username</p>
 					<input type="text" value={username} onChange={(e) => setUsername(e.target.value)}
-						className="border-2 border-gray-300 rounded-md p-2 mb-4" />
+						   className="border-2 border-gray-300 rounded-md p-2 mb-4"
+						   placeholder="Enter Anything for Demo"
+					/>
 					<p className="mb-2">Password</p>
 					<input type="password" value={password} onChange={(e) => setPassword(e.target.value)}
-											 className="border-2 border-gray-300 rounded-md p-2 mb-4" />
-					<button onClick={handleLogin} className="bg-black text-white px-4 py-2 rounded text-center">Login</button>
+						   className="border-2 border-gray-300 rounded-md p-2 mb-4"
+						   placeholder="Enter Anything for Demo"
+					/>
+					<button onClick={handleLogin} className="bg-black text-white px-4 py-2 rounded text-center">Login
+					</button>
 					<div className="flex items-center my-2">
 						<div className="border-t-2 border-gray-300 flex-grow"></div>
 						<div className="mx-4">or</div>
 						<div className="border-t-2 border-gray-300 flex-grow"></div>
 					</div>
-					<a href="/demo/home" className="bg-nhs-blue text-white px-4 py-2 rounded text-center">Login with NHS</a>
+					<a href="/demo/home" className="bg-nhs-blue text-white px-4 py-2 rounded text-center">Login with
+						NHS</a>
 				</div>
 			</div>
 		</MinimalLayout>

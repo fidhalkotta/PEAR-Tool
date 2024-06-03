@@ -23,11 +23,11 @@ export default function NavigationBar() {
 					<img src="images/fidhal_pfp.png" alt="Profile" className="rounded-full w-10 cursor-pointer"/>
 					{isDropdownOpen && (
 						<div className="absolute right-0 mt-2 py-2 w-48 bg-white rounded-lg shadow-xl">
-							<Link href="/settings"
+							<Link href="/demo/home"
 								className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Settings</Link>
-							<Link href="/inventory"
+							<Link href="/demo/home"
 								className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Inventory</Link>
-							<Link href="/login"
+							<Link href="/demo/login"
 								className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</Link>
 						</div>
 					)}

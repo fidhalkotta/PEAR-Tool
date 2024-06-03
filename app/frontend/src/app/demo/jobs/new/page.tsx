@@ -64,9 +64,24 @@ export default function NewJob() {
 
 				setShowSuggestions(true);
 				setSuggestions([
-					{ size: "ETBF 28 13 C 145 E", description: "Optimal fit for patient anatomy and cost-effective", cost: "£300", stock: 15 },
-					{ size: "ETBF 28 13 C 124 E", description: "Good alternative, slightly more expensive", cost: "£350", stock: 10 },
-					{ size: "ETBF 32 16 C 124 E", description: "Larger size, used only if necessary due to cost", cost: "£400", stock: 5 }
+					{
+						size: "ETBF 28 13 C 145 E",
+						description: "Optimal fit for patient anatomy and cost-effective",
+						cost: "£300",
+						stock: 15
+					},
+					{
+						size: "ETBF 28 13 C 124 E",
+						description: "Good alternative, slightly more expensive",
+						cost: "£350",
+						stock: 10
+					},
+					{
+						size: "ETBF 32 16 C 124 E",
+						description: "Larger size, used only if necessary due to cost",
+						cost: "£400",
+						stock: 5
+					}
 				]);
 			}, 5000); // Delay for 5 seconds
 		}
@@ -92,14 +107,15 @@ export default function NewJob() {
 			<div>
 
 				<div className="container mx-auto p-4">
-					<div className="flex h-screen">
-						<div className="w-1/2 mx-4">
+					<div className="flex flex-col md:flex-row h-screen">
+						<div className="w-full md:w-1/2 mx-0 md:mx-0 mb-4 md:mb-0">
 
 							<h2 className="font-bold text-lg mb-4">Create Job</h2>
 
 							{/* Patient Name */}
 							<div className="mb-4">
-								<label htmlFor="patientName" className="block text-sm font-medium text-gray-700">Patient Name</label>
+								<label htmlFor="patientName" className="block text-sm font-medium text-gray-700">Patient
+									Name</label>
 								<input
 									type="text"
 									id="patientName"
@@ -160,14 +176,25 @@ export default function NewJob() {
 							{showSuggestions && (
 								<div>
 									<h3 className="">Suggested Stent Graft Sizes</h3>
-									<p className="text-sm font-medium text-gray-700">Based on the uploaded CT scan, and <Link href="/inventory"><span className="underline">available inventory</span></Link>, these are the suggestions:</p>
+									<p className="text-sm font-medium text-gray-700">Based on the uploaded CT scan,
+										and <Link href="/inventory"><span
+										className="underline">available inventory</span></Link>, these are the
+										suggestions:</p>
 									<table className="min-w-full divide-y divide-gray-200 mt-4">
 										<thead className="bg-gray-50">
 											<tr>
-												<th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Size</th>
-												<th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cost</th>
-												<th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock</th>
-												<th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+												<th scope="col"
+													className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Size
+												</th>
+												<th scope="col"
+													className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cost
+												</th>
+												<th scope="col"
+													className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock
+												</th>
+												<th scope="col"
+													className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description
+												</th>
 											</tr>
 										</thead>
 										<tbody className="bg-white divide-y divide-gray-200">
@@ -233,7 +260,8 @@ export default function NewJob() {
 							<h3>Positioning</h3>
 
 							<div className="mb-4">
-								<label htmlFor="positioning" className="block text-sm font-medium text-gray-700">Proximal Neck Dimension</label>
+								<label htmlFor="positioning" className="block text-sm font-medium text-gray-700">Proximal
+									Neck Dimension</label>
 								<input
 									type="range"
 									id="positioning"
@@ -265,7 +293,7 @@ export default function NewJob() {
 								Submit to Job Queue
 							</button>
 						</div>
-						<div className="w-1/2 mx-4">
+						<div className="w-full md:w-1/2 mx-4">
 							<h2 className="font-bold text-lg mb-4">
 								{show3DViewer ? "3D Viewer" : "2D Viewer"}
 								{" / "}
@@ -279,9 +307,9 @@ export default function NewJob() {
 							<div className="h-full flex justify-center items-center">
 								{fileUploaded ? (
 									show3DViewer ? (
-										<File3DViewer />
+										<File3DViewer/>
 									) : (
-										<ResultsCarousel images={images} />
+										<ResultsCarousel images={images}/>
 									)
 								) : (
 									<svg

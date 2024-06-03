@@ -241,7 +241,7 @@ export default function Home() {
 										<div className="w-8/12">
 											<Progress progress={job.progress} size="lg" color={getColor(job.progress)}/>
 										</div>
-										<span>{job.progress}%</span>
+										<span className="ml-2">{job.progress}%</span>
 									</div>
 								))}
 							</div>
